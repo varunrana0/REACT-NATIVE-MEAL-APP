@@ -8,6 +8,13 @@ import {
 } from "react-native";
 import { useEffect } from "react";
 import { Meals } from "../data/dummy-data";
+import {
+  borderRadius,
+  Colors,
+  fonts,
+  letterSpacing,
+  margin,
+} from "../assets/utilities";
 
 const MealsScreen = ({ route, navigation }) => {
   const { title, id } = route.params;
@@ -72,21 +79,21 @@ export default MealsScreen;
 const styles = StyleSheet.create({
   cards: {
     flex: 1,
-    margin: 14,
+    margin: margin.xlarge,
     height: 350,
     backgroundColor: "white",
     elevation: 4,
-    borderRadius: 10,
+    borderRadius: borderRadius.large,
   },
   pressable: {
-    borderRadius: 10,
+    borderRadius: borderRadius.large,
     height: "100%",
   },
   text: {
-    fontSize: 20,
+    fontSize: fonts.large,
     fontWeight: "bold",
-    letterSpacing: 1,
+    letterSpacing: letterSpacing.medium,
     textTransform: "capitalize",
-    color: "#333",
+    color: Colors.Gray700,
   },
 });

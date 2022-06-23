@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Category } from "../data/dummy-data";
 import CategoryCards from "../components/Cards";
 
-const MealsCategories = ({ route, navigation }) => {
+const MealsCategories = ({ navigation }) => {
   useEffect(() => {
     navigation.setOptions({
       title: "Meals Categories",

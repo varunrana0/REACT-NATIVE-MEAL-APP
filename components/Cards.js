@@ -6,6 +6,14 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
+import {
+  borderRadius,
+  Colors,
+  fonts,
+  fontWeights,
+  letterSpacing,
+  margin,
+} from "../assets/utilities";
 
 const Cards = ({ imageUrl, onPress, title }) => {
   return (
@@ -14,14 +22,14 @@ const Cards = ({ imageUrl, onPress, title }) => {
         source={{ uri: imageUrl }}
         resizeMode="cover"
         imageStyle={{
-          borderRadius: 10,
+          borderRadius: borderRadius.large,
           width: "100%",
           height: "100%",
           resizeMode: "cover",
         }}>
         <Pressable
           onPress={onPress}
-          android_ripple={{ color: "#eee" }}
+          android_ripple={{ color: Colors.Ripple300 }}
           style={({ pressed }) => [
             styles.pressable,
             pressed && styles.pressedButton,
@@ -38,25 +46,25 @@ export default Cards;
 const styles = StyleSheet.create({
   cards: {
     flex: 1,
-    margin: 10,
+    margin: margin.large,
     height: 250,
     overflow: "hidden",
-    elevation: 14,
-    borderRadius: 10,
+    elevation: 10,
+    borderRadius: borderRadius.large,
   },
   pressable: {
     height: "100%",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#000",
+    backgroundColor: Colors.dark,
     opacity: 0.7,
   },
   text: {
-    fontSize: 20,
-    fontWeight: "bold",
-    letterSpacing: 1,
+    fontSize: fonts.large,
+    fontWeight: fontWeights.bold,
+    letterSpacing: letterSpacing.medium,
     textTransform: "capitalize",
-    color: "white",
+    color: Colors.light,
   },
 });
