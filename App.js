@@ -1,15 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsCategories from "./screens/MealsCategories";
 import MealsScreen from "./screens/MealsScreen";
+import MealsDetailsScreen from "./screens/MealsDetailsScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -26,12 +20,12 @@ export default function App() {
             headerTitleAlign: "center",
             headerTitleStyle: {
               fontWeight: "bold",
-              fontSize: 24,
-              color: "purple",
+              fontSize: 20,
             },
           }}>
           <Stack.Screen name="MealsCategories" component={MealsCategories} />
           <Stack.Screen name="Meals" component={MealsScreen} />
+          <Stack.Screen name="Details" component={MealsDetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

@@ -7,6 +7,7 @@ const Colors = {
   Gray800: "#222",
   Gray700: "#333",
   dark: "#000",
+  blue400: "#d0ebff",
   Ripple300: "#eee",
 };
 

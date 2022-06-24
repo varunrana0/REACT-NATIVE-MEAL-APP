@@ -7,11 +7,7 @@ class Meal {
     duration,
     description,
     ingredients,
-    steps,
-    isGlutenFree,
-    isVegan,
-    isVegetarian,
-    isLactoseFree
+    steps
   ) {
     this.id = id;
     this.categoryIds = categoryIds;
@@ -21,10 +17,6 @@ class Meal {
     this.description = description;
     this.steps = steps;
     this.duration = duration;
-    this.isGlutenFree = isGlutenFree;
-    this.isVegan = isVegan;
-    this.isVegetarian = isVegetarian;
-    this.isLactoseFree = isLactoseFree;
   }
 }
 

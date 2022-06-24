@@ -79,10 +79,11 @@ export const Category = [
 export const Meals = [
   new meal(
     "m1",
-    ["c0"],
+    ["c0", "c10", "c4"],
     "Classic Pasta Amatriciana",
     "https://images.pexels.com/photos/1527603/pexels-photo-1527603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     20,
+    "This is the most basic and simplest cooked pasta sauce, hence it is the benchmark of a good Italian home cook. This one boats of being among the original Italian recipes of pasta. easy and quick, this pasta recipe can be made under half an hour. Serve as a breakfast, pack for kid's tiffin or savour as an evening snack. You can even cook this for a casual and lazy dinner and pair this up with red wine.",
     [
       "2 Tbsp extra virgin olive oil",
       "30 gms butter, unsalted",
@@ -93,21 +94,15 @@ export const Meals = [
       "8-10 Tomatoes (riped), chopped",
     ],
     [
-      "first step",
-      "second step",
-      "third step",
-      "four step",
-      "fifth step",
-      "sixth step",
-    ],
-    true,
-    true,
-    false,
-    true
+      "Cook diced bacon in a large saucepan over medium high heat until crisp, about 5 minutes. Drain all but 2 tablespoons of drippings from the pan.",
+      "Add onions, and cook over medium heat about 3 minutes. Stir in garlic and red pepper flakes; cook 30 seconds. Add canned tomatoes, undrained; simmer 10 minutes, breaking up tomatoes.",
+      "Meanwhile, cook the pasta in a large pot of 4 quarts boiling salted water until al dente. Drain.",
+      "Stir basil into the sauce, and then toss with cooked pasta. Serve with grated Parmesan cheese.",
+    ]
   ),
   new meal(
     "m2",
-    ["c0"],
+    ["c3", "c11"],
     "Pasta Con Pomodoro E Basilico",
     "https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg",
     20,
@@ -130,10 +125,85 @@ export const Meals = [
       "Cook the pasta in abundant boiling water, till al dente, and drain.",
       "Place in a serving bowl with the sauce. Drizzle a little olive oil over the pasta and mix well with the sauce.",
       "Serve with grated Parmesan cheese.",
+    ]
+  ),
+  new meal(
+    "m3",
+    ["c1", "c8", "c11"],
+    "Red Split Lentils (Masoor Dal)",
+    "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpublic-assets-ucg.meredithcorp.io%2F951d56f317d807ce7952b4eebbc3c043%2F6099107.jpg&w=595&h=595&c=sc&poi=face&q=60",
+    140,
+    "This is the most basic and simplest cooked Red Split Lentils (Masoor Dal), hence it is the benchmark of a good Indian home cook. This one boats of being among the original Indian recipes of dal. easy and quick, this dal recipe can be made under two and half hour. Serve as a lunch, You can even cook this for a casual and lazy dinner and pair this up with tortillas.",
+    [
+      "1 cup basmati rice",
+      "4 ½ cups water, divided",
+
+      "1 cup red lentils (masoor dal), rinsed",
+
+      "½ cup finely chopped red onion (Optional)",
+
+      "1 teaspoon ground cumin",
+
+      "1 teaspoon ground coriander",
+
+      "1 teaspoon salt, or to taste",
+
+      "½ teaspoon ground black pepper (Optional)",
+
+      "½ teaspoon cayenne powder (Optional)",
+
+      "½ teaspoon ground turmeric",
+
+      "1 cup broccoli florets (Optional)",
+
+      "1 cup diced tomatoes (Optional)",
+
+      "1 cup frozen peas (Optional)",
+
+      "1 tablespoon olive oil, or as needed",
+
+      "1 cup sliced mushrooms (Optional)",
+
+      "1 tablespoon peeled, finely grated fresh ginger",
+
+      "2 cloves garlic, finely grated",
     ],
-    true,
-    true,
-    false,
-    true
+    [
+      "Rinse rice in several changes of water and transfer to a container. Cover with water and let soak at room temperature, 15 minutes to 1 hour. Drain.",
+      "Combine 3 cups water with red lentils in a large pot over medium heat. Bring to a simmer, skimming any scum that collects on the surface. Stir in onion, cumin, coriander, salt, black pepper, cayenne, and turmeric. Reduce heat to low and simmer, partially covered, until lentils are tender, about 30 minutes.",
+      "Stir broccoli, tomatoes, peas, and salt into the pot. Continue cooking, stirring frequently, until lentils are soft, about 30 minutes more.",
+      "Combine drained rice with remaining 1 1/2 cup water in another pot; bring to a boil. Reduce heat to very low and simmer, covered with a tight-fitting lid, until rice is tender and liquid is absorbed, about 20 minutes.",
+      "Heat oil in a small skillet over medium heat. Add mushrooms, ginger, and garlic; cook and stir until fragrant, 3 to 5 minutes. Pour over lentils; stir to distribute. Cook lentils until flavors combine, about 5 minutes. Serve lentils with rice.",
+    ]
+  ),
+  new meal(
+    "m4",
+    ["c5", "c11"],
+    "German Spaghettini",
+    "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpublic-assets-ucg.meredithcorp.io%2F4aa5b9f05d85487b44c1d85a32f5a39a%2F4464943.jpg&w=595&h=595&c=sc&poi=face&q=60",
+    95,
+    "This is the most basic and simplest German Spaghattini, hence it is the benchmark of a good German home cook. This one boats of being among the original German recipes of spaghattini. easy and quick, this spaghattini recipe can be made under two hour. Serve as a lunch, You can even cook this for a casual and lazy dinner and pair this up with german spaghattini.",
+    [
+      "1 pound lean ground beef",
+
+      "¼ pound Italian sausage",
+
+      "6 slices bacon",
+
+      "1 (15 ounce) can tomato sauce",
+
+      "1 (28 ounce) can canned tomatoes",
+
+      "⅓ cup white sugar",
+
+      "12 ounces spaghettini",
+    ],
+    [
+      "In a skillet over medium heat, brown the ground beef until no pink shows; drain and remove from skillet. Brown Sausage in skillet until cooked through; drain.",
+      "Combine in skillet with sausage: browned beef, bacon, tomato sauce, tomatoes and sugar. Simmer 45 minutes.",
+      "Bring a large pot of lightly salted water to a boil. Add spaghettini pasta and cook for 8 to 10 minutes or until al dente; drain.",
+      "Preheat oven to 300 degrees F (150 degrees C).",
+      "Mix cooked spaghettini with tomato-meat mixture. Pour in casserole dish and bake for 30 minutes.",
+    ]
   ),
 ];

@@ -5,7 +5,7 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
-import React from "react";
+
 import {
   borderRadius,
   Colors,
@@ -47,9 +47,11 @@ const styles = StyleSheet.create({
   cards: {
     flex: 1,
     margin: margin.large,
-    height: 250,
+    height: 220,
     overflow: "hidden",
-    elevation: 10,
+    backgroundColor: Colors.light,
+    shadowColor: "black",
+    elevation: 1,
     borderRadius: borderRadius.large,
   },
   pressable: {

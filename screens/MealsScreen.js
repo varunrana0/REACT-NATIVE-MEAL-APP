@@ -1,20 +1,7 @@
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  StyleSheet,
-  Pressable,
-} from "react-native";
+import { View, FlatList } from "react-native";
 import { useEffect } from "react";
 import { Meals } from "../data/dummy-data";
-import {
-  borderRadius,
-  Colors,
-  fonts,
-  letterSpacing,
-  margin,
-} from "../assets/utilities";
+import MealsItem from "../components/MealsItem";
 
 const MealsScreen = ({ route, navigation }) => {
   const { title, id } = route.params;
@@ -29,38 +16,14 @@ const MealsScreen = ({ route, navigation }) => {
     });
   }, [navigation]);
 
-  function renderMealCards(itemCard) {
-    return (
-      <View style={[styles.cards]}>
-        <Pressable
-          android_ripple={{ color: "#eee" }}
-          style={({ pressed }) => [
-            styles.pressable,
-            pressed && styles.pressedButton,
-          ]}>
-          <Image
-            style={{ height: 250 }}
-            source={{ uri: itemCard.item.imageUrl }}
-            resizeMode="cover"
-          />
-          <View style={{ padding: 10 }}>
-            <Text style={[styles.text]}>{title}</Text>
-            <View style={{ marginTop: 10 }}>
-              <Text>
-                <Text style={{ fontWeight: "bold" }}>Duration:</Text>{" "}
-                {itemCard.item.duration} min.
-              </Text>
-            </View>
-            <View style={{ marginTop: 5 }}>
-              <Text>
-                <Text style={{ fontWeight: "bold" }}>isGlutenFree:</Text>{" "}
-                {itemCard.item.isGlutenFree}
-              </Text>
-            </View>
-          </View>
-        </Pressable>
-      </View>
-    );
+  function renderMealCards(itemData) {
+    function moveDetailsScreen() {
+      navigation.navigate("Details", {
+        id: itemData.item.id,
+        title: itemData.item.title,
+      });
+    }
+    return <MealsItem itemCard={itemData} onPress={moveDetailsScreen} />;
   }
 
   return (
@@ -75,25 +38,3 @@ const MealsScreen = ({ route, navigation }) => {
 };
 
 export default MealsScreen;
-
-const styles = StyleSheet.create({
-  cards: {
-    flex: 1,
-    margin: margin.xlarge,
-    height: 350,
-    backgroundColor: "white",
-    elevation: 4,
-    borderRadius: borderRadius.large,
-  },
-  pressable: {
-    borderRadius: borderRadius.large,
-    height: "100%",
-  },
-  text: {
-    fontSize: fonts.large,
-    fontWeight: "bold",
-    letterSpacing: letterSpacing.medium,
-    textTransform: "capitalize",
-    color: Colors.Gray700,
-  },
-});

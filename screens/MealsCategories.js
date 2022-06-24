@@ -1,5 +1,5 @@
-import { StyleSheet, FlatList, TextInput, Text } from "react-native";
-import React, { useEffect } from "react";
+import { FlatList } from "react-native";
+import { useEffect } from "react";
 import { Category } from "../data/dummy-data";
 import CategoryCards from "../components/Cards";
 
@@ -28,7 +28,6 @@ const MealsCategories = ({ navigation }) => {
 
   return (
     <FlatList
-      contentInsetAdjustmentBehavior="automatic"
       data={Category}
       keyExtractor={(item) => item.id}
       renderItem={categoryCardItems}
