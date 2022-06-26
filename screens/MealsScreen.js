@@ -1,18 +1,20 @@
 import { View, FlatList } from "react-native";
-import { useEffect } from "react";
-import { Meals } from "../data/dummy-data";
+import { useLayoutEffect } from "react";
+import { Meals, Category } from "../data/dummy-data";
 import MealsItem from "../components/MealsItem";
 
 const MealsScreen = ({ route, navigation }) => {
-  const { title, id } = route.params;
+  const { id } = route.params;
 
   const displayedMeal = Meals.filter((item) => {
     return item.categoryIds.indexOf(id) >= 0;
   });
 
-  useEffect(() => {
+  const CategoryTitle = Category.find((category) => category.id === id).title;
+
+  useLayoutEffect(() => {
     navigation.setOptions({
-      title,
+      title: CategoryTitle,
     });
   }, [navigation]);
 
@@ -20,7 +22,6 @@ const MealsScreen = ({ route, navigation }) => {
     function moveDetailsScreen() {
       navigation.navigate("Details", {
         id: itemData.item.id,
-        title: itemData.item.title,
       });
     }
     return <MealsItem itemCard={itemData} onPress={moveDetailsScreen} />;

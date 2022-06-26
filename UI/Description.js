@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Colors, fonts, fontWeights, letterSpacing } from "../assets/utilities";
+import { Colors, fonts, letterSpacing } from "../assets/utilities";
 
 const Description = ({ item }) => {
   return (

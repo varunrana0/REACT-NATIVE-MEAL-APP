@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import {
   Colors,
@@ -11,19 +11,6 @@ import {
 const Steps = ({ items }) => {
   const [readMore, setReadMore] = useState(false);
   const [list, setList] = useState(items.steps.slice(0, 2));
-
-  function renderSteps(itemData) {
-    return (
-      <View style={styles.box}>
-        <Text style={styles.stepsText}>
-          <Text style={styles.stepsBackground}>
-            step {itemData.index + 1} ‣
-          </Text>
-          &nbsp; {itemData.item}
-        </Text>
-      </View>
-    );
-  }
 
   function compareReadMore() {
     if (!readMore) {
@@ -38,16 +25,16 @@ const Steps = ({ items }) => {
     <View style={styles.container}>
       <Text style={styles.text}>steps</Text>
       <View style={{ paddingVertical: 20 }}>
-        <FlatList
-          data={list}
-          keyExtractor={(item) => {
-            item.slice(6, 15) +
-              Date.now().toLocaleString() +
-              item.slice(29, 48);
-          }}
-          listKey={(item) => item}
-          renderItem={renderSteps}
-        />
+        {list &&
+          list.map((item, index) => (
+            <View key={index} style={styles.box}>
+              <Text style={styles.stepsText}>
+                <Text style={styles.stepsBackground}>step {index + 1} ‣</Text>
+                &nbsp;
+                <Text>{item}</Text>
+              </Text>
+            </View>
+          ))}
         <Text style={styles.readMoreText} onPress={compareReadMore}>
           {readMore ? "...show less" : "...read more"}
         </Text>

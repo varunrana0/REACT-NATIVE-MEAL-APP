@@ -1,15 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
 import { Colors, fontWeights, letterSpacing } from "../assets/utilities";
 
 const Infos = ({ item }) => {
   return (
-    <View style={styles.timingInfo}>
-      <Text style={styles.timingInfoText}>duration: {item.duration} min.</Text>
-      <Text style={styles.timingInfoText}>
-        ingredients: {item.ingredients.length}
-      </Text>
-      <Text style={styles.timingInfoText}> steps: {item.steps.length}</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>duration: {item.duration} min.</Text>
+      <Text style={styles.text}>ingredients: {item.ingredients.length}</Text>
+      <Text style={styles.text}>steps: {item.steps.length}</Text>
     </View>
   );
 };
@@ -17,7 +14,7 @@ const Infos = ({ item }) => {
 export default Infos;
 
 const styles = StyleSheet.create({
-  timingInfo: {
+  container: {
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
@@ -25,7 +22,7 @@ const styles = StyleSheet.create({
     elevation: 1,
     backgroundColor: Colors.light,
   },
-  timingInfoText: {
+  text: {
     fontSize: 12,
     textAlign: "center",
     letterSpacing: letterSpacing.medium,

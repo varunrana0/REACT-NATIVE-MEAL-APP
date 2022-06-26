@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import {
   borderRadius,
   Colors,
@@ -12,14 +12,6 @@ import {
 const Ingredients = ({ items }) => {
   const [readMore, setReadMore] = useState(false);
   const [list, setList] = useState(items.ingredients.slice(0, 5));
-
-  function renderIngredients(itemData) {
-    return (
-      <View style={styles.box}>
-        <Text style={styles.ingredientsText}>‣ &nbsp; {itemData.item}</Text>
-      </View>
-    );
-  }
 
   function compareReadMore() {
     if (!readMore) {
@@ -34,14 +26,13 @@ const Ingredients = ({ items }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>ingredients</Text>
-      <View style={{ paddingVertical: 20 }}>
-        <FlatList
-          data={list}
-          keyExtractor={(item) => {
-            item.slice(4, 9);
-          }}
-          renderItem={renderIngredients}
-        />
+      <View style={{ marginTop: 20 }}>
+        {list &&
+          list.map((item, index) => (
+            <View key={index} style={styles.box}>
+              <Text style={styles.ingredientsText}>‣ &nbsp; {item}</Text>
+            </View>
+          ))}
         <Text style={styles.readMoreText} onPress={compareReadMore}>
           {readMore ? "...show less" : "...read more"}
         </Text>
@@ -83,5 +74,6 @@ const styles = StyleSheet.create({
     textTransform: "capitalize",
     letterSpacing: letterSpacing.medium,
     lineHeight: 20,
+    textAlign: "justify",
   },
 });

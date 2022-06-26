@@ -16,7 +16,6 @@ const MealsCategories = ({ navigation }) => {
     function moveNextScreen() {
       navigation.navigate("Meals", {
         id: itemData.item.id,
-        title: item.title,
       });
     }
     const cardProps = {

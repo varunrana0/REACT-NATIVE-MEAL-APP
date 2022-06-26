@@ -1,34 +1,18 @@
-import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import {
-  borderRadius,
-  Colors,
-  fonts,
-  letterSpacing,
-  margin,
-} from "../assets/utilities";
+import { View, StyleSheet, Pressable } from "react-native";
+import { margin } from "../assets/utilities";
+import MealImage from "./MealImage";
+import MealInfo from "./MealInfo";
 
 const MealsItem = ({ itemCard, onPress }) => {
+  const item = itemCard.item;
   return (
     <View style={[styles.cards]}>
       <Pressable
         onPress={onPress}
         android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => pressed && styles.pressedButton}>
-        <View style={{ height: 200 }}>
-          <Image
-            style={styles.image}
-            source={{ uri: itemCard.item.imageUrl }}
-          />
-        </View>
-        <View style={{ paddingVertical: 14 }}>
-          <Text style={[styles.text]}>{itemCard.item.title}</Text>
-          <View style={{ marginTop: 10 }}>
-            <Text>
-              <Text style={{ fontWeight: "bold" }}>Duration:</Text>{" "}
-              {itemCard.item.duration} min.
-            </Text>
-          </View>
-        </View>
+        <MealImage item={item} />
+        <MealInfo item={item} />
       </Pressable>
     </View>
   );
@@ -41,17 +25,5 @@ const styles = StyleSheet.create({
     flex: 1,
     marginVertical: margin.xxxlarge,
     marginHorizontal: margin.large,
-  },
-  image: {
-    height: "100%",
-    width: "100%",
-    resizeMode: "cover",
-  },
-  text: {
-    fontSize: fonts.large,
-    fontWeight: "bold",
-    letterSpacing: letterSpacing.medium,
-    textTransform: "capitalize",
-    color: Colors.Gray700,
   },
 });
