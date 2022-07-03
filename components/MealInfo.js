@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+
 import {
   Colors,
   fonts,
@@ -21,8 +21,10 @@ export default MealInfo;
 
 const styles = StyleSheet.create({
   card: {
-    paddingVertical: margin.xlarge,
+    paddingVertical: margin.xxxlarge,
     paddingHorizontal: margin.medium,
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
     fontSize: fonts.large,
@@ -32,6 +34,7 @@ const styles = StyleSheet.create({
     color: Colors.Gray700,
   },
   duration: {
+    marginTop: 5,
     fontWeight: fontWeights.medium,
   },
 });

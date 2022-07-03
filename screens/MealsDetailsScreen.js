@@ -1,23 +1,50 @@
-import { View, StyleSheet, Image, Text, ScrollView } from "react-native";
-import { useLayoutEffect } from "react";
-import { Meals } from "../data/dummy-data";
+import { View, StyleSheet, Image, Text, ScrollView, Alert } from "react-native";
+import { useContext, useEffect, useLayoutEffect, useState } from "react";
+
+import { favourites, Meals } from "../data/dummy-data";
 import Description from "../UI/Description";
 import Ingredients from "../UI/Ingredients";
 import Infos from "../UI/Infos";
-import { Colors, fonts, fontWeights, letterSpacing } from "../assets/utilities";
 import Steps from "../UI/Steps";
+import { Colors, fonts, fontWeights, letterSpacing } from "../assets/utilities";
+import Button from "../components/Button";
+import { FavouriteContext } from "../store/favouriteContext";
 
 const MealsDetailsScreen = ({ route, navigation }) => {
   const { id } = route.params;
 
+  const favouriteContextIds = useContext(FavouriteContext);
+
+  // grab the title from the meal based on route
   const mealTitle = Meals.find((meal) => meal.id === id).title;
   const singleMeal = Meals.find((meal) => meal.id === id);
 
+  const isFavourite = favouriteContextIds.ids.includes(id);
+
+  function changeFavouriteHandler() {
+    if (isFavourite) {
+      favouriteContextIds.removeFavourite(id);
+    } else {
+      favouriteContextIds.addFavourite(id);
+    }
+  }
+
+  // set title to the screen
   useLayoutEffect(() => {
     navigation.setOptions({
       title: mealTitle,
+
+      headerRight: () => {
+        return (
+          <Button
+            icon={isFavourite ? "star" : "star-outline"}
+            color={"red"}
+            onPress={changeFavouriteHandler}
+          />
+        );
+      },
     });
-  }, [navigation]);
+  }, [navigation, changeFavouriteHandler]);
 
   return (
     <ScrollView style={styles.screen} showsVerticalScrollIndicator={false}>

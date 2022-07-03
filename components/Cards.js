@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: Colors.dark,
     opacity: 0.7,
+    overflow: "hidden",
   },
   text: {
     fontSize: fonts.large,

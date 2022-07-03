@@ -1,13 +1,16 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MealsCategories from "./screens/MealsCategories";
+import FavouriteContextProvider from "./store/favouriteContext";
+
 import MealsScreen from "./screens/MealsScreen";
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
+import DrawerStack from "./Navigations/DrawerStack";
 
 const options = {
-  statusBarStyle: "dark",
   animation: "slide_from_right",
+  statusBarStyle: "dark",
   headerShadowVisible: true,
   headerTitleAlign: "center",
   contentStyle: {
@@ -19,18 +22,31 @@ const options = {
   },
 };
 
+const Stack = createNativeStackNavigator();
+
+const HandleDrawerScreen = () => {
+  return <DrawerStack />;
+};
+
 export default function App() {
-  const Stack = createNativeStackNavigator();
   return (
     <>
       <StatusBar style="dark" />
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ ...options }}>
-          <Stack.Screen name="MealsCategories" component={MealsCategories} />
-          <Stack.Screen name="Meals" component={MealsScreen} />
-          <Stack.Screen name="Details" component={MealsDetailsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <FavouriteContextProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ ...options }}>
+            <Stack.Screen
+              name="Drawer"
+              component={HandleDrawerScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen name="Meals" component={MealsScreen} />
+            <Stack.Screen name="Details" component={MealsDetailsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </FavouriteContextProvider>
     </>
   );
 }

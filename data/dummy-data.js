@@ -1,6 +1,10 @@
 import category from "../models/category";
 import meal from "../models/meal";
 
+export const favourites = {
+  ids: [],
+};
+
 export const Category = [
   new category(
     "c0",

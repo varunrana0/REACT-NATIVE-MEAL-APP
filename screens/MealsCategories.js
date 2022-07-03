@@ -4,12 +4,6 @@ import { Category } from "../data/dummy-data";
 import CategoryCards from "../components/Cards";
 
 const MealsCategories = ({ navigation }) => {
-  useEffect(() => {
-    navigation.setOptions({
-      title: "Meals Categories",
-    });
-  }, [navigation]);
-
   const categoryCardItems = (itemData) => {
     const item = itemData.item;
 
